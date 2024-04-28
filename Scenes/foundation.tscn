@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://bn8wfhbs1omgo" path="res://Assets/third_person_controller_assets-main/textures/grids/Dark/texture_08.png" id="1_rj7u5"]
 [ext_resource type="Script" path="res://Scenes/buildableGround.gd" id="2_nftvx"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ekni"]
-albedo_texture = ExtResource("1_rj7u5")
-uv1_triplanar = true
-
 [sub_resource type="BoxMesh" id="BoxMesh_oeowy"]
 size = Vector3(5, 1, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nx5hs"]
+albedo_texture = ExtResource("1_rj7u5")
+uv1_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o4kcc"]
 size = Vector3(5, 1, 5)
@@ -19,9 +19,9 @@ size = Vector3(5, 1, 5)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Main"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-material_override = SubResource("StandardMaterial3D_3ekni")
 mesh = SubResource("BoxMesh_oeowy")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nx5hs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

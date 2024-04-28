@@ -1,7 +1,7 @@
 extends RayCast3D
 
 @export var structure: PackedScene
-@export var holoShader = VisualShader
+@export var holoShader = ShaderMaterial
 
 @onready var structurePreview = structure.instantiate().get_node("Main").duplicate()
 
@@ -10,22 +10,26 @@ var previewTargetPosition = Vector3.ZERO
 
 func _ready():
 	structurePreview.get_node("CollisionShape3D").disabled = true
+	structurePreview.get_node("MeshInstance3D").set_surface_override_material(0, holoShader)
 	get_tree().root.add_child.call_deferred(structurePreview)
 	structurePreview.hide()
 	
 func _input(event):
+	if event.is_action_pressed("Aim"):
+		aiming = true
+	if event.is_action_released("Aim"):
+		aiming = false
+		structurePreview.hide()
+			
 	if is_colliding():
 		var objectDetected = get_collider()
 		previewTargetPosition = get_collision_point()
 		
 		# New code here
-		if event.is_action_pressed("Aim"):
-			aiming = true
+		
 		if aiming:
 			structurePreview.show()
-		if event.is_action_released("Aim"):
-			aiming = false
-			structurePreview.hide()
+		
 		
 		
 		# Interact with object
