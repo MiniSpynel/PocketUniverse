@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpbcubaajnwy4"]
+
+[ext_resource type="Shader" path="res://Shaders/erosion.gdshader" id="1_s50ye"]
+[ext_resource type="Script" path="res://Scripts/buildableArea.gd" id="2_p0hvj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oeowy"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ewgan"]
+render_priority = 0
+shader = ExtResource("1_s50ye")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o4kcc"]
+size = Vector3(5, 1, 5)
+
+[node name="Foundation" type="Node3D"]
+
+[node name="Main" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_oeowy")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ewgan")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_o4kcc")
+
+[node name="Platform2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+script = ExtResource("2_p0hvj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_o4kcc")
+
+[node name="Platform3" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+script = ExtResource("2_p0hvj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_o4kcc")
+
+[node name="Platform4" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+script = ExtResource("2_p0hvj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_o4kcc")
+
+[node name="Platform5" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+script = ExtResource("2_p0hvj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_o4kcc")

@@ -1,34 +1,32 @@
 [gd_scene load_steps=6 format=3 uid="uid://cgxxk1ka8arun"]
 
 [ext_resource type="PackedScene" uid="uid://crhg1bq6tkh5y" path="res://Scenes/player.tscn" id="5_nuwsy"]
-[ext_resource type="PackedScene" uid="uid://cvv7a33oohqsf" path="res://Scenes/foundation.tscn" id="7_jl0ei"]
+[ext_resource type="PackedScene" uid="uid://cvv7a33oohqsf" path="res://Scenes/baseModule.tscn" id="7_jl0ei"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vht7j"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pua3u"]
+ground_bottom_color = Color(0.145098, 0.117647, 0.211765, 1)
+ground_horizon_color = Color(0.611765, 0.610784, 0.738235, 1)
 
-[sub_resource type="Sky" id="Sky_pjs3i"]
-sky_material = SubResource("ProceduralSkyMaterial_vht7j")
+[sub_resource type="Sky" id="Sky_n27ak"]
+sky_material = SubResource("ProceduralSkyMaterial_pua3u")
 
-[sub_resource type="Environment" id="Environment_v4ev4"]
+[sub_resource type="Environment" id="Environment_fmrln"]
 background_mode = 2
-sky = SubResource("Sky_pjs3i")
+sky = SubResource("Sky_n27ak")
 tonemap_mode = 2
-sdfgi_enabled = true
 glow_enabled = true
-fog_enabled = true
-fog_density = 0.005
 
 [node name="World" type="Node"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 4, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_v4ev4")
+environment = SubResource("Environment_fmrln")
 
 [node name="Player" parent="." instance=ExtResource("5_nuwsy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0181873, 1, 0.174524)
 
 [node name="Foundation" parent="." instance=ExtResource("7_jl0ei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
