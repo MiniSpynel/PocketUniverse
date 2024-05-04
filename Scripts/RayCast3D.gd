@@ -34,28 +34,24 @@ func _input(event):
 		aiming = false
 		structurePreview.hide()
 
-	if is_colliding():
-		var objectDetected = get_collider()
-		# Interact with object
-		if objectDetected is Interactable and event.is_action_pressed(objectDetected.prompt_action):
-			objectDetected.interact()
+
+	if event.is_action_pressed("LeftClick"):
+		if aiming and is_colliding():
+			var objectDetected = get_collider()
 			
-		# Build new structure
-		if objectDetected.get_parent() is BuildableArea:
-			
-			var wall = objectDetected.get_parent()
-			var module = wall.get_parent()
-			
-			if aiming:
+			if objectDetected.get_parent() is BuildableArea:
+				var wall = objectDetected.get_parent()
+				
 				previewTargetPosition = objectDetected.global_position
 				structurePreview.show()
+
+				var newStructure = structure.instantiate()
+				wall.create_new_room()
 			
-				if event.is_action_pressed("LeftClick"):
-					var newStructure = structure.instantiate()
-					wall.create_new_room()
+			else:
+				structurePreview.hide()
 		
-		else:
-			structurePreview.hide()
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
