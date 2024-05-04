@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cgxxk1ka8arun"]
 
+[ext_resource type="PackedScene" uid="uid://dnnqlih3x25y5" path="res://Scenes/Module.tscn" id="3_tgurf"]
 [ext_resource type="PackedScene" uid="uid://crhg1bq6tkh5y" path="res://Scenes/player.tscn" id="5_nuwsy"]
-[ext_resource type="PackedScene" uid="uid://cvv7a33oohqsf" path="res://Scenes/baseModule.tscn" id="7_jl0ei"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pua3u"]
 ground_bottom_color = Color(0.145098, 0.117647, 0.211765, 1)
@@ -26,7 +26,6 @@ shadow_enabled = true
 environment = SubResource("Environment_fmrln")
 
 [node name="Player" parent="." instance=ExtResource("5_nuwsy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0181873, 1, 0.174524)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0181873, 0, 0.174524)
 
-[node name="Foundation" parent="." instance=ExtResource("7_jl0ei")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+[node name="baseModule" parent="." instance=ExtResource("3_tgurf")]

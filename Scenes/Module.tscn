@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnnqlih3x25y5"]
+
+[ext_resource type="Script" path="res://Scripts/Module.gd" id="1_inla3"]
+[ext_resource type="PackedScene" uid="uid://3732d0b4yahf" path="res://Assets/Blender/door.blend" id="3_565by"]
+[ext_resource type="PackedScene" uid="uid://2rdidc7ey3xi" path="res://Assets/Blender/wall.blend" id="3_u0l4v"]
+
+[node name="baseModule" type="Node3D"]
+script = ExtResource("1_inla3")
+wallFront = ExtResource("3_565by")
+wallBack = ExtResource("3_565by")
+wallLeft = ExtResource("3_565by")
+wallRight = ExtResource("3_565by")
+wallUp = ExtResource("3_565by")
+wallDown = ExtResource("3_u0l4v")

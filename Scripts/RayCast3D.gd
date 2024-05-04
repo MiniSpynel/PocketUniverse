@@ -18,7 +18,7 @@ func get_all_nodes_of_type(object: Node3D, type: String, result: Array = []):
 
 func _ready():
 	# Add structurePreview to the scene
-	get_tree().root.add_child.call_deferred(structurePreview)
+	#get_tree().root.add_child.call_deferred(structurePreview)
 	structurePreview.hide()
 	
 	for c in get_all_nodes_of_type(structurePreview, "CollisionShape3D"):
@@ -36,14 +36,14 @@ func _input(event):
 
 	if is_colliding():
 		var objectDetected = get_collider()
-
 		# Interact with object
 		if objectDetected is Interactable and event.is_action_pressed(objectDetected.prompt_action):
 			objectDetected.interact()
 			
 		# Build new structure
-		if objectDetected is BuildableArea:
-			var wall = objectDetected
+		if objectDetected.get_parent() is BuildableArea:
+			
+			var wall = objectDetected.get_parent()
 			var module = wall.get_parent()
 			
 			if aiming:
@@ -52,15 +52,16 @@ func _input(event):
 			
 				if event.is_action_pressed("LeftClick"):
 					var newStructure = structure.instantiate()
-					get_tree().root.add_child(newStructure)
-					newStructure.global_position = objectDetected.global_position
+					wall.create_new_room()
+		
 		else:
 			structurePreview.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if structurePreview and structurePreview.is_inside_tree():
-		structurePreview.global_position = lerp(structurePreview.global_position, previewTargetPosition, 10 * delta)
-	else:
-		print("structurePreview is not in the scene tree")
+	#if structurePreview and structurePreview.is_inside_tree():
+	#	structurePreview.global_position = lerp(structurePreview.global_position, previewTargetPosition, 10 * delta)
+	#else:
+	#	print("structurePreview is not in the scene tree")
+	pass
