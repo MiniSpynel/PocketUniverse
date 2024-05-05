@@ -41,15 +41,9 @@ func _input(event):
 			
 			if objectDetected.get_parent() is BuildableArea:
 				var wall = objectDetected.get_parent()
-				
-				previewTargetPosition = objectDetected.global_position
-				structurePreview.show()
 
-				var newStructure = structure.instantiate()
 				wall.create_new_room()
-			
-			else:
-				structurePreview.hide()
+
 		
 		
 
