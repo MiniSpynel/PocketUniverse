@@ -1,9 +1,7 @@
 extends Node3D
 
 var BaseGrid: Dictionary = {}
-var dimensionX = load("res://Scripts/ModuleClass.gd").new().dimensionX
-var dimensionY = load("res://Scripts/ModuleClass.gd").new().dimensionY
-var dimensionZ = load("res://Scripts/ModuleClass.gd").new().dimensionZ
+var dimension = load("res://Scripts/ModuleClass.gd").new().dimension
 
 var room = load("res://Scenes/Module.tscn")
 var door = load("res://Assets/Blender/door.blend")
@@ -11,16 +9,44 @@ var door = load("res://Assets/Blender/door.blend")
 func clear_walls():
 	
 	for key in BaseGrid:
-		if BaseGrid.has(Vector3(key.x+dimensionX, key.y, key.z)):
-			BaseGrid[key].update_wall("wallR", door)
-			BaseGrid[Vector3(key.x+dimensionX, key.y, key.z)].update_wall("wallL", door)
-		if BaseGrid.has(Vector3(key.x, key.y+dimensionY, key.z)):
-			BaseGrid[key].update_wall("wallU", door)
-			BaseGrid[Vector3(key.x, key.y+dimensionY, key.z)].update_wall("wallD", door)
-		if BaseGrid.has(Vector3(key.x, key.y, key.z+dimensionZ)):
-			BaseGrid[key].update_wall("wallF", door)
-			BaseGrid[Vector3(key.x, key.y, key.z+dimensionZ)].update_wall("wallB", door)
+		# Deleting unnecessary walls
+		if BaseGrid.has(Vector3(key.x+dimension, key.y, key.z)):
+			BaseGrid[key].update_wall("wallR")
+			BaseGrid[Vector3(key.x+dimension, key.y, key.z)].update_wall("wallL")
+		if BaseGrid.has(Vector3(key.x, key.y+dimension, key.z)):
+			BaseGrid[key].update_wall("wallU")
+			BaseGrid[Vector3(key.x, key.y+dimension, key.z)].update_wall("wallD")
+		if BaseGrid.has(Vector3(key.x, key.y, key.z+dimension)):
+			BaseGrid[key].update_wall("wallF")
+			BaseGrid[Vector3(key.x, key.y, key.z+dimension)].update_wall("wallB")
 		
+		# Deleting unecessary edges
+		if BaseGrid.has(Vector3(key.x, key.y, key.z+dimension)) and BaseGrid.has(Vector3(key.x, key.y+dimension, key.z)) and BaseGrid.has(Vector3(key.x, key.y+dimension, key.z+dimension)):
+			BaseGrid[key].update_edge("edgeFU")
+			BaseGrid[Vector3(key.x, key.y, key.z+dimension)].update_edge("edgeBU")
+			BaseGrid[Vector3(key.x, key.y+dimension, key.z)].update_edge("edgeFD")
+			BaseGrid[Vector3(key.x, key.y+dimension, key.z+dimension)].update_edge("edgeBD")
+		if BaseGrid.has(Vector3(key.x+dimension, key.y, key.z)) and BaseGrid.has(Vector3(key.x, key.y+dimension, key.z)) and BaseGrid.has(Vector3(key.x+dimension, key.y+dimension, key.z)):
+			BaseGrid[key].update_edge("edgeRU")
+			BaseGrid[Vector3(key.x+dimension, key.y, key.z)].update_edge("edgeLU")
+			BaseGrid[Vector3(key.x, key.y+dimension, key.z)].update_edge("edgeRD")
+			BaseGrid[Vector3(key.x+dimension, key.y+dimension, key.z)].update_edge("edgeLD")
+		if BaseGrid.has(Vector3(key.x+dimension, key.y, key.z)) and BaseGrid.has(Vector3(key.x, key.y, key.z+dimension)) and BaseGrid.has(Vector3(key.x+dimension, key.y, key.z+dimension)):
+			BaseGrid[key].update_edge("edgeFR")
+			BaseGrid[Vector3(key.x+dimension, key.y, key.z)].update_edge("edgeFL")
+			BaseGrid[Vector3(key.x, key.y, key.z+dimension)].update_edge("edgeBR")
+			BaseGrid[Vector3(key.x+dimension, key.y, key.z+dimension)].update_edge("edgeBL")
+			
+		if BaseGrid.has(Vector3(key.x+dimension, key.y, key.z)) and BaseGrid.has(Vector3(key.x, key.y, key.z+dimension)) and BaseGrid.has(Vector3(key.x+dimension, key.y, key.z+dimension)) and BaseGrid.has(Vector3(key.x, key.y+dimension, key.z)) and BaseGrid.has(Vector3(key.x+dimension, key.y+dimension, key.z)) and BaseGrid.has(Vector3(key.x, key.y+dimension, key.z+dimension)) and BaseGrid.has(Vector3(key.x+dimension, key.y+dimension, key.z+dimension)):
+			BaseGrid[key].update_corner("cornerFRU")
+			BaseGrid[Vector3(key.x+dimension, key.y, key.z)].update_corner("cornerFLU")
+			BaseGrid[Vector3(key.x, key.y, key.z+dimension)].update_corner("cornerBRU")
+			BaseGrid[Vector3(key.x+dimension, key.y, key.z+dimension)].update_corner("cornerBLU")
+			
+			BaseGrid[Vector3(key.x, key.y+dimension, key.z)].update_corner("cornerFRD")
+			BaseGrid[Vector3(key.x+dimension, key.y+dimension, key.z)].update_corner("cornerFLD")
+			BaseGrid[Vector3(key.x, key.y+dimension, key.z+dimension)].update_corner("cornerBRD")
+			BaseGrid[Vector3(key.x+dimension, key.y+dimension, key.z+dimension)].update_corner("cornerBLD")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -1,21 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnnqlih3x25y5"]
+[gd_scene load_steps=6 format=3 uid="uid://dnnqlih3x25y5"]
 
 [ext_resource type="Script" path="res://Scripts/Module.gd" id="1_inla3"]
-[ext_resource type="PackedScene" uid="uid://11csj7fd6aw2" path="res://Assets/Blender/edge.blend" id="3_fcbn3"]
-[ext_resource type="PackedScene" uid="uid://bti5j3o7nas43" path="res://Assets/Blender/wall.blend" id="3_u0l4v"]
+[ext_resource type="PackedScene" uid="uid://b5alseanbiuo2" path="res://Scenes/wall.tscn" id="2_dyhep"]
+[ext_resource type="PackedScene" uid="uid://cgj552m430eko" path="res://Scenes/edge.tscn" id="3_qdbbv"]
+[ext_resource type="PackedScene" uid="uid://c05r7ycbl832q" path="res://Scenes/corner.tscn" id="4_w10kd"]
+[ext_resource type="PackedScene" uid="uid://dtyuevjjvqst7" path="res://Scenes/light.tscn" id="5_5gc3b"]
 
 [node name="baseModule" type="Node3D"]
 script = ExtResource("1_inla3")
-wallFront = ExtResource("3_u0l4v")
-wallBack = ExtResource("3_u0l4v")
-wallLeft = ExtResource("3_u0l4v")
-wallRight = ExtResource("3_u0l4v")
-wallUp = ExtResource("3_u0l4v")
-wallDown = ExtResource("3_u0l4v")
-edge = ExtResource("3_fcbn3")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.519188, 0.766781, 0.553767)
-light_color = Color(0.827451, 0.768627, 0.658824, 1)
-shadow_enabled = true
-omni_range = 15.0
+wall = ExtResource("2_dyhep")
+edge = ExtResource("3_qdbbv")
+corner = ExtResource("4_w10kd")
+light = ExtResource("5_5gc3b")
