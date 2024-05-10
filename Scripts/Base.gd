@@ -1,10 +1,9 @@
 extends Node3D
 
 var BaseGrid: Dictionary = {}
-var dimension = load("res://Scripts/ModuleClass.gd").new().dimension
+var dimension = load("res://Scripts/Module.gd").new().dimension
 
 var room = load("res://Scenes/Module.tscn")
-var door = load("res://Assets/Blender/door.blend")
 
 func clear_walls():
 	

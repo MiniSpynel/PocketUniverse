@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SlotData" load_steps=3 format=3 uid="uid://duqhmypxnmu8w"]
+
+[ext_resource type="Resource" uid="uid://cqrwhmkr780ds" path="res://Items/test_item.tres" id="1_f47c3"]
+[ext_resource type="Script" path="res://Scripts/slot_data.gd" id="1_pb6ne"]
+
+[resource]
+script = ExtResource("1_pb6ne")
+item_data = ExtResource("1_f47c3")
+quantity = 5

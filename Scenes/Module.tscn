@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://dnnqlih3x25y5"]
 
 [ext_resource type="Script" path="res://Scripts/Module.gd" id="1_inla3"]
-[ext_resource type="PackedScene" uid="uid://b5alseanbiuo2" path="res://Scenes/wall.tscn" id="2_dyhep"]
-[ext_resource type="PackedScene" uid="uid://cgj552m430eko" path="res://Scenes/edge.tscn" id="3_qdbbv"]
-[ext_resource type="PackedScene" uid="uid://c05r7ycbl832q" path="res://Scenes/corner.tscn" id="4_w10kd"]
+[ext_resource type="PackedScene" uid="uid://daxj6abckt8eg" path="res://Assets/Blender/wall.blend" id="2_debq1"]
+[ext_resource type="PackedScene" uid="uid://dnxfnev1wbf4" path="res://Assets/Blender/edge.blend" id="3_iymld"]
+[ext_resource type="PackedScene" uid="uid://d4mio1wvlfaox" path="res://Assets/Blender/corner.blend" id="4_x1woc"]
 [ext_resource type="PackedScene" uid="uid://dtyuevjjvqst7" path="res://Scenes/light.tscn" id="5_5gc3b"]
 
 [node name="baseModule" type="Node3D"]
 script = ExtResource("1_inla3")
-wall = ExtResource("2_dyhep")
-edge = ExtResource("3_qdbbv")
-corner = ExtResource("4_w10kd")
-light = ExtResource("5_5gc3b")
+wall_scene = ExtResource("2_debq1")
+edge_scene = ExtResource("3_iymld")
+corner_scene = ExtResource("4_x1woc")
+light_scene = ExtResource("5_5gc3b")
