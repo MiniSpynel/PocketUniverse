@@ -11,13 +11,16 @@
 [node name="World" type="Node"]
 script = ExtResource("1_3j564")
 
-[node name="Player" parent="." instance=ExtResource("5_nuwsy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0181873, 0, 0.174524)
-inventory_data = ExtResource("3_0heor")
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.53266, 0.995039, 0)
+use_collision = true
 
 [node name="GlobalBase" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("2_qio3o")
+
+[node name="Player" parent="." instance=ExtResource("5_nuwsy")]
+inventory_data = ExtResource("3_0heor")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
