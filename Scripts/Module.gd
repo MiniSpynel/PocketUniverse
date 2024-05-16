@@ -199,7 +199,7 @@ func _ready():
 		wallDictionary[wall]["object"].position = wallDictionary[wall]["position"]
 		wallDictionary[wall]["object"].rotation = wallDictionary[wall]["rotation"]
 		wallDictionary[wall]["object"].newRoomDirection = wallDictionary[wall]["direction"]
-		
+	
 	for edge in edgeDictionary:
 		add_child(edgeDictionary[edge]["object"])
 		edgeDictionary[edge]["object"].position = edgeDictionary[edge]["position"]

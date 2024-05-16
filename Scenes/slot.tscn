@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/slot.gd" id="1_hgeli"]
 
 [node name="Slot" type="PanelContainer"]
-custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 100.0
+custom_minimum_size = Vector2(50, 50)
+offset_right = 50.0
+offset_bottom = 50.0
 script = ExtResource("1_hgeli")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

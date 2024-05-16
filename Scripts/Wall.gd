@@ -11,8 +11,6 @@ func create_new_room():
 	new_room.position = Room.position + newRoomDirection
 	
 	get_tree().root.get_node("World/GlobalBase").add_child(new_room)
-	print("new room position : ", new_room.global_position, " = ", Room.global_position, " + ", newRoomDirection)
-	print(room)
 	
 	base.clear_walls()
 

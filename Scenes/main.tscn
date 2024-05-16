@@ -12,7 +12,7 @@
 script = ExtResource("1_3j564")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.53266, 0.995039, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.96307, 2.99504, 0)
 use_collision = true
 
 [node name="GlobalBase" type="Node3D" parent="."]
@@ -20,6 +20,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("2_qio3o")
 
 [node name="Player" parent="." instance=ExtResource("5_nuwsy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 inventory_data = ExtResource("3_0heor")
 
 [node name="UI" type="Control" parent="."]
@@ -45,84 +46,6 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0, 0.294118, 1)
-
-[node name="ItemBar" type="GridContainer" parent="UI"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.922
-anchor_right = 0.5
-anchor_bottom = 0.922
-offset_left = -545.0
-offset_top = -50.0
-offset_right = 545.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
-columns = 10
-metadata/_edit_use_anchors_ = true
-
-[node name="Panel" type="Panel" parent="UI/ItemBar"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Panel2" type="Panel" parent="UI/ItemBar"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Panel3" type="Panel" parent="UI/ItemBar"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Panel4" type="Panel" parent="UI/ItemBar"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Panel5" type="Panel" parent="UI/ItemBar"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Panel6" type="Panel" parent="UI/ItemBar"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Panel7" type="Panel" parent="UI/ItemBar"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Panel8" type="Panel" parent="UI/ItemBar"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Panel9" type="Panel" parent="UI/ItemBar"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Panel10" type="Panel" parent="UI/ItemBar"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="InventoryInterface" type="Control" parent="UI"]
 visible = false
