@@ -18,17 +18,24 @@ signal toggle_build_menu
 @onready var cursor = $"../UI/ColorRect"
 @onready var build_menu_interface = $"../UI/BuildMenuInterface"
 @onready var inventory_interface = $"../UI/InventoryInterface"
+@onready var detect_wall_ray_cast = $Visuals/DetectWallRayCast
+@onready var gizmo1 = $CSGSphere3D
+@onready var gizmo2 = $CSGSphere3D2
+
 
 var SPEED = 2
 const JUMP_VELOCITY = 4.5
 var walkingSpeed = 2
 var runningSpeed = 5
-var running = false
+var running: bool = false
+var facing_wall = null
 
 var camera_start_position = 0.0
 var camera_aim_position = 0.6
 
 var gravity = Vector3(0, -9.81, 0)
+var gravity_intensity = 9.81
+var target_gravity = Vector3(0, -9.81, 0)
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -36,12 +43,9 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("Interact"):
 		if gravity == Vector3(9.81, 0, 0):
-			gravity = Vector3(0, -9.81, 0)
-			rotate_z(deg_to_rad(-90))
+			target_gravity = Vector3(0, -9.81, 0)
 		else:
-			gravity = Vector3(9.81, 0, 0)
-			rotate_z(deg_to_rad(90))
-		up_direction = -gravity.normalized()
+			target_gravity = Vector3(9.81, 0, 0)
 
 	if event is InputEventMouseMotion and not build_menu_interface.visible and not inventory_interface.visible:
 		cameraMountX.rotate_y(deg_to_rad(-event.relative.x * sensitivity_horizontal))
@@ -60,9 +64,40 @@ func _input(event):
 	if event.is_action_pressed("Inventory"):
 		toggle_inventory.emit()
 
+func _process(delta):
+	gizmo1.global_position = global_position + transform.basis.z*1.5
+	gizmo2.global_position = global_position + global_basis.z
+	
+	if detect_wall_ray_cast.is_colliding():
+		facing_wall = detect_wall_ray_cast.get_collider()
+
 func _physics_process(delta):
+	
 	handle_aiming(delta)
 	handle_movement(delta)
+	if gravity != target_gravity:
+		shift_gravity(delta)
+
+func shift_gravity(delta):
+	gravity = lerp(gravity, target_gravity, delta*2)
+	up_direction = -gravity.normalized()
+	#var rotation_axis = gravity.cross(target_gravity).normalized()
+	#rotate(rotation_axis.normalized(), delta/4)
+	
+	# Get the current up direction, which is the object's y-axis
+	var current_up: Vector3 = global_transform.basis.y
+
+	# Calculate the rotation axis which is the cross product of the current up and target up
+	var rotation_axis: Vector3 = current_up.cross(up_direction).normalized()
+	
+	# Calculate the angle between the current up and target up
+	var angle: float = acos(current_up.dot(up_direction))
+	
+	rotate(rotation_axis, angle)
+	
+	
+	if gravity.angle_to(target_gravity)<0.05 and (target_gravity-gravity).length()<0.1:
+		gravity = target_gravity
 
 func handle_aiming(delta):
 	if Input.is_action_pressed("Aim"):
@@ -73,15 +108,19 @@ func handle_aiming(delta):
 		cursor.hide()
 
 func handle_movement(delta):
+	
 	var input_dir = Input.get_vector("MoveLeft", "MoveRight", "MoveForward", "MoveBackward")
 	var direction = (cameraMountX.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	var global_direction = Quaternion(transform.basis).normalized() * direction
-
+	var global_direction = transform.basis.get_rotation_quaternion().normalized() * direction
+	print("wall: %s, direction: %s" % [facing_wall, direction])
 	if direction != Vector3.ZERO:
 		animationPlayer.play("running" if running else "walking")
 	else:
 		animationPlayer.play("idle")
 
+	if facing_wall and Input.is_action_pressed("MoveForward"):
+		
+		target_gravity = -detect_wall_ray_cast.get_collision_normal()*gravity_intensity
 
 	if global_direction != Vector3.ZERO:
 		var current_look_at = global_position - visuals.global_transform.basis.z

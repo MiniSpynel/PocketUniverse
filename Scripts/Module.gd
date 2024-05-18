@@ -15,32 +15,32 @@ var dimension: float = 7
 
 @onready var base: Node3D = $".."
 
-func update_wall(name: String, object: PackedScene = null):
-	if wallDictionary[name]["object"] != null:
-		wallDictionary[name]["object"].queue_free()
+func update_wall(wallName: String, object: PackedScene = null):
+	if wallDictionary[wallName]["object"] != null:
+		wallDictionary[wallName]["object"].queue_free()
 	if object != null:
-		wallDictionary[name]["object"] = object.instantiate()
-		add_child(wallDictionary[name]["object"])
-		wallDictionary[name].position = wallDictionary[name]["position"]
-		wallDictionary[name].rotation = wallDictionary[name]["rotation"]
+		wallDictionary[wallName]["object"] = object.instantiate()
+		add_child(wallDictionary[wallName]["object"])
+		wallDictionary[wallName].position = wallDictionary[wallName]["position"]
+		wallDictionary[wallName].rotation = wallDictionary[wallName]["rotation"]
 	
-func update_edge(name: String, object: PackedScene = null):
-	if edgeDictionary[name]["object"] != null:
-		edgeDictionary[name]["object"].queue_free()
+func update_edge(edgeName: String, object: PackedScene = null):
+	if edgeDictionary[edgeName]["object"] != null:
+		edgeDictionary[edgeName]["object"].queue_free()
 	if object != null :
-		edgeDictionary[name]["object"] = object.instantiate()
-		add_child(edgeDictionary[name]["object"])
-		edgeDictionary[name].position = edgeDictionary[name]["position"]
-		edgeDictionary[name].rotation = edgeDictionary[name]["rotation"]
+		edgeDictionary[edgeName]["object"] = object.instantiate()
+		add_child(edgeDictionary[edgeName]["object"])
+		edgeDictionary[edgeName].position = edgeDictionary[edgeName]["position"]
+		edgeDictionary[edgeName].rotation = edgeDictionary[edgeName]["rotation"]
 		
-func update_corner(name: String, object: PackedScene = null):
-	if cornerDictionary[name]["object"] != null:
-		cornerDictionary[name]["object"].queue_free()
+func update_corner(cornerName: String, object: PackedScene = null):
+	if cornerDictionary[cornerName]["object"] != null:
+		cornerDictionary[cornerName]["object"].queue_free()
 	if object != null :
-		cornerDictionary[name]["object"] = object.instantiate()
-		add_child(cornerDictionary[name]["object"])
-		cornerDictionary[name].position = cornerDictionary[name]["position"]
-		cornerDictionary[name].rotation = cornerDictionary[name]["rotation"]
+		cornerDictionary[cornerName]["object"] = object.instantiate()
+		add_child(cornerDictionary[cornerName]["object"])
+		cornerDictionary[cornerName].position = cornerDictionary[cornerName]["position"]
+		cornerDictionary[cornerName].rotation = cornerDictionary[cornerName]["rotation"]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -214,6 +214,3 @@ func _ready():
 	
 	add_child(light_scene.instantiate())
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
