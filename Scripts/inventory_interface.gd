@@ -7,16 +7,21 @@ var grabbed_slot_data: SlotData
 
 func _physics_process(delta):
 	if grabbed_slot.visible:
-		grabbed_slot.global_position = get_global_mouse_position() + Vector2(-50, -50)
+		grabbed_slot.global_position = get_global_mouse_position() #+ Vector2(-grabbed_slot.size.x/2, -grabbed_slot.size.y/2)
 
 func set_player_inventory_data(inventory_data: InventoryData):
 	inventory_data.inventory_interact.connect(on_inventory_interact)
 	player_inventory.set_inventory_data(inventory_data)
 
 func on_inventory_interact(inventory_data: InventoryData, index: int, button: int):
+	
 	match [grabbed_slot_data, button]:
 		[null, MOUSE_BUTTON_LEFT]:
 			grabbed_slot_data = inventory_data.grab_slot_data(index)
+			print("grab")
+		[_, MOUSE_BUTTON_LEFT]:
+			grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
+			print("drop")
 	
 	update_grabbed_slot()
 

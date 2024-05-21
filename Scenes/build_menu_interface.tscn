@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0rq3xcttqtf3"]
+
+[ext_resource type="Script" path="res://Scripts/build_menu_interface.gd" id="1_ajfo0"]
+[ext_resource type="Resource" uid="uid://ds4hpvsg6auqm" path="res://Resources/Techs/BaseModule.tres" id="3_rorex"]
+[ext_resource type="Resource" uid="uid://bhqt82q8ib6uj" path="res://Resources/Techs/Stairs.tres" id="4_wqlnw"]
+[ext_resource type="Resource" uid="uid://cv1os0t0akrmw" path="res://Resources/Techs/Chair.tres" id="5_51rpu"]
+[ext_resource type="Resource" uid="uid://dua0qi7hskelm" path="res://Resources/Techs/Platform.tres" id="5_hustv"]
+
+[node name="TabContainer" type="TabContainer"]
+custom_minimum_size = Vector2(600, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ajfo0")
+starting_techs = Array[Resource("res://Scripts/techResource.gd")]([ExtResource("3_rorex"), ExtResource("5_51rpu"), ExtResource("5_hustv"), ExtResource("4_wqlnw")])

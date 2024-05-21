@@ -1,19 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgxxk1ka8arun"]
+[gd_scene load_steps=5 format=3 uid="uid://cgxxk1ka8arun"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_3j564"]
 [ext_resource type="Script" path="res://Scripts/Base.gd" id="2_qio3o"]
-[ext_resource type="Resource" uid="uid://bm4yj2ttsk0wf" path="res://Items/test_inv.tres" id="3_0heor"]
-[ext_resource type="PackedScene" uid="uid://c7surp880dtnd" path="res://Scenes/inventory.tscn" id="5_f014s"]
-[ext_resource type="Script" path="res://Scripts/inventory_interface.gd" id="5_mgr02"]
+[ext_resource type="PackedScene" uid="uid://deeljvgc5r0af" path="res://Scenes/ui.tscn" id="5_7vgnx"]
 [ext_resource type="PackedScene" uid="uid://crhg1bq6tkh5y" path="res://Scenes/player.tscn" id="5_nuwsy"]
-[ext_resource type="PackedScene" uid="uid://ck4aup0tk5fl3" path="res://Scenes/slot.tscn" id="7_bn8b4"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_3j564")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.96307, 2.99504, 0)
-use_collision = true
+[node name="UI" parent="." instance=ExtResource("5_7vgnx")]
+metadata/_edit_use_anchors_ = true
 
 [node name="GlobalBase" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
@@ -21,53 +17,3 @@ script = ExtResource("2_qio3o")
 
 [node name="Player" parent="." instance=ExtResource("5_nuwsy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-inventory_data = ExtResource("3_0heor")
-
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="UI"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0, 0.294118, 1)
-
-[node name="InventoryInterface" type="Control" parent="UI"]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("5_mgr02")
-
-[node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("5_f014s")]
-layout_mode = 1
-offset_left = 920.0
-offset_top = 500.0
-offset_right = 960.0
-offset_bottom = 540.0
-
-[node name="GrabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("7_bn8b4")]
-visible = false
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-
-[node name="BuildMenuInterface" type="Control" parent="UI"]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0

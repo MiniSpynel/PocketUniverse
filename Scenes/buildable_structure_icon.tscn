@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy7vfw6klvcvy"]
+
+[ext_resource type="Script" path="res://Scripts/buildable_structure_icon.gd" id="1_2lha7"]
+[ext_resource type="Texture2D" uid="uid://c67850xfp103j" path="res://Resources/Textures/Sprite-0001.png" id="2_ijibb"]
+
+[node name="buildable_structure_icon" type="PanelContainer"]
+offset_right = 90.0
+offset_bottom = 135.0
+script = ExtResource("1_2lha7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_ijibb")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Structure name"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

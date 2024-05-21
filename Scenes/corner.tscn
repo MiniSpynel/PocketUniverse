@@ -1,15 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://c05r7ycbl832q"]
+[gd_scene load_steps=7 format=3 uid="uid://cwltt5nt17k0o"]
 
 [ext_resource type="Texture2D" uid="uid://bn8wfhbs1omgo" path="res://Assets/third_person_controller_assets-main/textures/grids/Dark/texture_08.png" id="1_7pv4c"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c6g07"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4nsgm"]
 albedo_texture = ExtResource("1_7pv4c")
-metallic_specular = 0.0
 uv1_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brgw8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ushy"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_f58xp"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_jdp6o"]
 _surfaces = [{
 "aabb": AABB(-0.25, -0.25, -0.25, 0.5, 0.5, 0.50001),
 "format": 34896613377,
@@ -22,7 +21,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_xjema"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_em6x6"]
 resource_name = "corner_Cube_001"
 _surfaces = [{
 "aabb": AABB(-0.25, -0.25, -0.25, 0.5, 0.5, 0.50001),
@@ -30,26 +29,26 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(0, 0, 9, 0, 3, 0, 0, 0, 6, 0, 9, 0, 8, 0, 21, 0, 10, 0, 8, 0, 19, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 13, 0, 4, 0, 15, 0, 13, 0, 2, 0, 4, 0, 7, 0, 12, 0, 18, 0, 7, 0, 1, 0, 12, 0, 22, 0, 5, 0, 11, 0, 22, 0, 16, 0, 5, 0),
-"material": SubResource("StandardMaterial3D_brgw8"),
+"material": SubResource("StandardMaterial3D_5ushy"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
 "vertex_data": PackedByteArray(0, 0, 0, 0, 253, 255, 84, 213, 0, 0, 0, 0, 253, 255, 255, 191, 0, 0, 0, 0, 253, 255, 255, 191, 0, 0, 255, 255, 253, 255, 84, 213, 0, 0, 255, 255, 253, 255, 255, 191, 0, 0, 255, 255, 253, 255, 255, 255, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 253, 255, 255, 191, 255, 255, 0, 0, 253, 255, 255, 191, 255, 255, 0, 0, 253, 255, 84, 213, 255, 255, 255, 255, 253, 255, 255, 191, 255, 255, 255, 255, 253, 255, 255, 255, 255, 255, 255, 255, 253, 255, 84, 213, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 84, 213, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 84, 213, 84, 213, 84, 213, 0, 0, 255, 127, 255, 255, 255, 255, 84, 213, 84, 213, 255, 255, 255, 255, 255, 127, 255, 191, 84, 213, 84, 213, 0, 0, 255, 127, 255, 191, 255, 191, 84, 213, 84, 213, 255, 191, 255, 191, 255, 127, 255, 191, 0, 0, 255, 127, 255, 255, 255, 255, 170, 42, 170, 42, 255, 255, 255, 255, 255, 127, 255, 191, 170, 42, 170, 42, 0, 0, 255, 127, 255, 191, 255, 191, 170, 42, 170, 42, 255, 191, 255, 191, 255, 127, 255, 191, 170, 42, 170, 42)
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_f58xp")
+shadow_mesh = SubResource("ArrayMesh_jdp6o")
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_w7227"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kujil"]
 data = PackedVector3Array(-0.25, -0.25, 0.25, -0.25, 0.25, -0.25, -0.25, 0.25, 0.25, -0.25, -0.25, 0.25, -0.25, -0.25, -0.25, -0.25, 0.25, -0.25, -0.25, -0.25, -0.25, 0.25, 0.25, -0.25, -0.25, 0.25, -0.25, -0.25, -0.25, -0.25, 0.25, -0.25, -0.25, 0.25, 0.25, -0.25, 0.25, -0.25, -0.25, 0.25, 0.25, 0.25, 0.25, 0.25, -0.25, 0.25, -0.25, -0.25, 0.25, -0.25, 0.25, 0.25, 0.25, 0.25, 0.25, -0.25, 0.25, -0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, -0.25, 0.25, -0.25, -0.25, 0.25, -0.25, 0.25, 0.25, -0.25, -0.25, -0.25, 0.25, -0.25, 0.25, 0.25, -0.25, -0.25, -0.25, -0.25, -0.25, -0.25, -0.25, 0.25, 0.25, -0.25, 0.25, 0.25, 0.25, -0.25, -0.25, 0.25, 0.25, -0.25, 0.25, -0.25, 0.25, 0.25, -0.25, 0.25, 0.25, 0.25, -0.25, 0.25, 0.25)
 
 [node name="corner" type="Node3D"]
 
 [node name="corner" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_c6g07")
-mesh = SubResource("ArrayMesh_xjema")
+material_override = SubResource("StandardMaterial3D_4nsgm")
+mesh = SubResource("ArrayMesh_em6x6")
 skeleton = NodePath("")
 
-[node name="@StaticBody3D@17472" type="StaticBody3D" parent="."]
+[node name="@StaticBody3D@81068" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="@StaticBody3D@17472"]
-shape = SubResource("ConcavePolygonShape3D_w7227")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="@StaticBody3D@81068"]
+shape = SubResource("ConcavePolygonShape3D_kujil")

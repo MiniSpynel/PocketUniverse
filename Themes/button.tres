@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://culs0f1f21dge"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_johsq"]
+bg_color = Color(0.2, 0.0666667, 0.380392, 1)
+skew = Vector2(0.2, 0)
+border_width_left = 8
+border_color = Color(0.560784, 0.47451, 1, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mqgep"]
+bg_color = Color(0.239216, 0.0862745, 0.443137, 1)
+skew = Vector2(0.2, 0)
+border_width_left = 8
+border_color = Color(0.560784, 0.47451, 1, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[resource]
+Button/font_sizes/font_size = 30
+Button/styles/hover = SubResource("StyleBoxFlat_johsq")
+Button/styles/normal = SubResource("StyleBoxFlat_mqgep")

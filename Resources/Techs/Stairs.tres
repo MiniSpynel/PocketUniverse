@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Tech" load_steps=3 format=3 uid="uid://bhqt82q8ib6uj"]
+
+[ext_resource type="Script" path="res://Scripts/techResource.gd" id="1_2attq"]
+[ext_resource type="Texture2D" uid="uid://gqsy3ws6mwc1" path="res://Resources/Textures/stairs_icon.png" id="2_pqa0q"]
+
+[resource]
+script = ExtResource("1_2attq")
+name = "Stairs"
+texture = ExtResource("2_pqa0q")
+category = 0

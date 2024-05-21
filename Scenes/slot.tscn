@@ -1,11 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://ck4aup0tk5fl3"]
+[gd_scene load_steps=4 format=3 uid="uid://ck4aup0tk5fl3"]
 
 [ext_resource type="Script" path="res://Scripts/slot.gd" id="1_hgeli"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snjlk"]
+bg_color = Color(0, 0, 0, 0.513726)
+
+[sub_resource type="Theme" id="Theme_s0y8s"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_snjlk")
 
 [node name="Slot" type="PanelContainer"]
 custom_minimum_size = Vector2(50, 50)
 offset_right = 50.0
 offset_bottom = 50.0
+theme = SubResource("Theme_s0y8s")
 script = ExtResource("1_hgeli")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

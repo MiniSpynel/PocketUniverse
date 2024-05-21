@@ -13,7 +13,7 @@ var dimension: float = 7
 @export var corner_scene: PackedScene
 @export var light_scene: PackedScene
 
-@onready var base: Node3D = $".."
+@onready var base: Node = $".."
 
 func update_wall(wallName: String, object: PackedScene = null):
 	if wallDictionary[wallName]["object"] != null:

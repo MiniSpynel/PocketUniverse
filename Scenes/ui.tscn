@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://deeljvgc5r0af"]
+
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_mptym"]
+[ext_resource type="PackedScene" uid="uid://cpangknh3y4pj" path="res://Scenes/inventory_interface.tscn" id="1_vgt64"]
+[ext_resource type="PackedScene" uid="uid://canwxw6r4pedr" path="res://Scenes/menu.tscn" id="2_r3kdq"]
+[ext_resource type="PackedScene" uid="uid://c0rq3xcttqtf3" path="res://Scenes/build_menu_interface.tscn" id="3_d8olg"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mptym")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.411765, 0.509804, 0.901961, 1)
+
+[node name="InventoryInterface" parent="." instance=ExtResource("1_vgt64")]
+
+[node name="BuildMenuInterface" parent="." instance=ExtResource("3_d8olg")]
+visible = false
+layout_mode = 1
+
+[node name="Menu" parent="." instance=ExtResource("2_r3kdq")]
+visible = false
+layout_mode = 1

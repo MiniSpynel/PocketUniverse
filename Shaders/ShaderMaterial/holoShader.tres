@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bi71saqo54gol"]
+
+[ext_resource type="Shader" uid="uid://djkoem3hmykm8" path="res://Shaders/hologram.tres" id="1_h4vi8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_h4vi8")
+shader_parameter/Main_color = Color(8e-06, 0.612983, 0.839456, 1)
+shader_parameter/Rim_sharpness = 6.571
+shader_parameter/Emission_intensity = 1.0

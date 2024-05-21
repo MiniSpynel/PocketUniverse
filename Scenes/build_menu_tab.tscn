@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm2cpgkpf60qt"]
+
+[ext_resource type="Script" path="res://Scripts/build_menu_tab.gd" id="1_hn8h5"]
+
+[node name="Base" type="MarginContainer"]
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_hn8h5")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 10
