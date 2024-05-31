@@ -6,6 +6,7 @@ extends Node
 @onready var menu = UI.menu
 @onready var buildMenu = UI.buildMenu
 
+var menu_open = false
 var cameraMove = true
 
 func _ready():
@@ -16,26 +17,22 @@ func _ready():
 	player.toggle_inventory.connect(toggle_inventory_interface)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-func toggle_menu():
-	menu.visible = !menu.visible
+func update_menu_open():
+	menu_open = menu.visible or buildMenu.visible or inventory.visible
 	cameraMove = !cameraMove
-	if menu.visible:
+	if menu_open:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func toggle_menu():
+	menu.visible = !menu.visible
+	update_menu_open()
 
 func toggle_build_interface():
 	buildMenu.visible = !buildMenu.visible
-	cameraMove = !cameraMove
-	if buildMenu.visible:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	update_menu_open()
 
 func toggle_inventory_interface():
 	inventory.visible = !inventory.visible
-	cameraMove = !cameraMove
-	if inventory.visible:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	update_menu_open()

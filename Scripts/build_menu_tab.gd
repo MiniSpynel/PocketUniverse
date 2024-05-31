@@ -15,7 +15,8 @@ func _process(delta):
 	pass
 
 func add_tech(tech: Tech):
-	print(tech.name)
+	if !tech.object:
+		return
 	var new_struct = buildable_structure_icon.instantiate()
 	new_struct.tech = tech
 	grid_container.add_child(new_struct)

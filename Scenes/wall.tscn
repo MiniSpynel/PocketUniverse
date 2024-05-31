@@ -2,15 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://bn8wfhbs1omgo" path="res://Assets/third_person_controller_assets-main/textures/grids/Dark/texture_08.png" id="1_hsskx"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5rsg"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1wngu"]
+data = PackedVector3Array(-2, -2, 0.25, -2, 2, -0.25, -2, 2, 0.25, -2, -2, 0.25, -2, -2, -0.25, -2, 2, -0.25, -2, -2, -0.25, 2, 2, -0.25, -2, 2, -0.25, -2, -2, -0.25, 2, -2, -0.25, 2, 2, -0.25, 2, -2, -0.25, 2, 2, 0.25, 2, 2, -0.25, 2, -2, -0.25, 2, -2, 0.25, 2, 2, 0.25, 2, -2, 0.25, -2, 2, 0.25, 2, 2, 0.25, 2, -2, 0.25, -2, -2, 0.25, -2, 2, 0.25, -2, -2, -0.25, 2, -2, 0.25, 2, -2, -0.25, -2, -2, -0.25, -2, -2, 0.25, 2, -2, 0.25, 2, 2, -0.25, -2, 2, 0.25, -2, 2, -0.25, 2, 2, -0.25, 2, 2, 0.25, -2, 2, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jlblo"]
 albedo_texture = ExtResource("1_hsskx")
 uv1_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nx55"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxdsn"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_isryp"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_bwf1j"]
 _surfaces = [{
-"aabb": AABB(-3, -3, -0.25, 6, 6, 0.50001),
+"aabb": AABB(-2, -2, -0.25, 4, 4, 0.50001),
 "format": 34896613377,
 "index_count": 36,
 "index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
@@ -21,34 +24,29 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ngam7"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_yxv8g"]
 resource_name = "wall_Cube_003"
 _surfaces = [{
-"aabb": AABB(-3, -3, -0.25, 6, 6, 0.50001),
+"aabb": AABB(-2, -2, -0.25, 4, 4, 0.50001),
 "attribute_data": PackedByteArray(255, 95, 255, 255, 255, 31, 255, 63, 255, 95, 0, 0, 255, 159, 255, 255, 255, 159, 0, 0, 255, 223, 255, 63, 255, 95, 255, 191, 255, 31, 255, 127, 255, 95, 255, 191, 255, 159, 255, 191, 255, 159, 255, 191, 255, 223, 255, 127, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127),
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray(0, 0, 9, 0, 3, 0, 0, 0, 6, 0, 9, 0, 8, 0, 21, 0, 10, 0, 8, 0, 19, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 13, 0, 4, 0, 15, 0, 13, 0, 2, 0, 4, 0, 7, 0, 12, 0, 18, 0, 7, 0, 1, 0, 12, 0, 22, 0, 5, 0, 11, 0, 22, 0, 16, 0, 5, 0),
-"material": SubResource("StandardMaterial3D_3nx55"),
+"material": SubResource("StandardMaterial3D_gxdsn"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
 "vertex_data": PackedByteArray(0, 0, 0, 0, 253, 255, 84, 213, 0, 0, 0, 0, 253, 255, 255, 191, 0, 0, 0, 0, 253, 255, 255, 191, 0, 0, 255, 255, 253, 255, 84, 213, 0, 0, 255, 255, 253, 255, 255, 191, 0, 0, 255, 255, 253, 255, 255, 255, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 253, 255, 255, 191, 255, 255, 0, 0, 253, 255, 255, 191, 255, 255, 0, 0, 253, 255, 84, 213, 255, 255, 255, 255, 253, 255, 255, 191, 255, 255, 255, 255, 253, 255, 255, 255, 255, 255, 255, 255, 253, 255, 84, 213, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 84, 213, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 84, 213, 84, 213, 84, 213, 0, 0, 255, 127, 255, 255, 255, 255, 84, 213, 84, 213, 255, 255, 255, 255, 255, 127, 255, 191, 84, 213, 84, 213, 0, 0, 255, 127, 255, 191, 255, 191, 84, 213, 84, 213, 255, 191, 255, 191, 255, 127, 255, 191, 0, 0, 255, 127, 255, 255, 255, 255, 170, 42, 170, 42, 255, 255, 255, 255, 255, 127, 255, 191, 170, 42, 170, 42, 0, 0, 255, 127, 255, 191, 255, 191, 170, 42, 170, 42, 255, 191, 255, 191, 255, 127, 255, 191, 170, 42, 170, 42)
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_isryp")
+shadow_mesh = SubResource("ArrayMesh_bwf1j")
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qrlo5"]
-data = PackedVector3Array(-3, -3, 0.25, -3, 3, -0.25, -3, 3, 0.25, -3, -3, 0.25, -3, -3, -0.25, -3, 3, -0.25, -3, -3, -0.25, 3, 3, -0.25, -3, 3, -0.25, -3, -3, -0.25, 3, -3, -0.25, 3, 3, -0.25, 3, -3, -0.25, 3, 3, 0.25, 3, 3, -0.25, 3, -3, -0.25, 3, -3, 0.25, 3, 3, 0.25, 3, -3, 0.25, -3, 3, 0.25, 3, 3, 0.25, 3, -3, 0.25, -3, -3, 0.25, -3, 3, 0.25, -3, -3, -0.25, 3, -3, 0.25, 3, -3, -0.25, -3, -3, -0.25, -3, -3, 0.25, 3, -3, 0.25, 3, 3, -0.25, -3, 3, 0.25, -3, 3, -0.25, 3, 3, -0.25, 3, 3, 0.25, -3, 3, 0.25)
+[node name="_StaticBody3D_23061" type="StaticBody3D"]
 
-[node name="wall" type="Node3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_1wngu")
 
 [node name="wall" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_e5rsg")
-mesh = SubResource("ArrayMesh_ngam7")
+material_override = SubResource("StandardMaterial3D_jlblo")
+mesh = SubResource("ArrayMesh_yxv8g")
 skeleton = NodePath("")
-
-[node name="@StaticBody3D@81080" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="@StaticBody3D@81080"]
-shape = SubResource("ConcavePolygonShape3D_qrlo5")

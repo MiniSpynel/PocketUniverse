@@ -1,11 +1,11 @@
-extends Node3D
+extends Structure
 
 var wallDictionary : Dictionary = {}
 var edgeDictionary : Dictionary = {}
 var cornerDictionary : Dictionary = {}
 
 var wall_thickness = 0.5
-var dimension: float = 7
+var dimension: float = 5
 
 @export_category("Components")
 @export var wall_scene: PackedScene

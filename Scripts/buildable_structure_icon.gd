@@ -8,8 +8,8 @@ signal structure_select(struct)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	texture_rect.texture = tech.texture
-	label.text = tech.name
+	texture_rect.texture = tech.texture if tech.texture else load("res://Resources/Textures/Sprite-0001.png")
+	label.text = tech.name if tech.name else "unnamed"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,4 +20,3 @@ func _process(delta):
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		structure_select.emit(tech)
-		print(tech.name)

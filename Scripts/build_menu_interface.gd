@@ -24,7 +24,6 @@ func _ready():
 		for tech in tabs[category]:
 			tab_instance.add_tech(tech)
 
-	print(tabs)
 
 func structure_selected(struct):
 	structure_select.emit(struct)

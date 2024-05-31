@@ -1,4 +1,4 @@
-class_name BuildableArea
+class_name Wall
 extends Node3D
 
 var room = load("res://Scenes/Module.tscn")
